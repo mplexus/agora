@@ -14,7 +14,7 @@
         <span>{{payment.token}}</span>
         <p>{{payment.status}}</p>
         <p>{{payment.created_at}}</p>
-        <p>{{payment.money_amount}}</p>
+        <p>{{ (payment.money_amount / 100) | currency : "€" : 2}}</p>
       </li>
     </ul>
 
