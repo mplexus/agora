@@ -3,10 +3,15 @@
 // Define the `agoraApp` module
 var agoraApp = angular.module('agoraApp', []);
 
-// Define the `PaymentListController` controller on the `agoraApp` module
-agoraApp.controller('PaymentListController', function($scope, $http) {
-  $http.get('payments.json')
-  .then(function(res){
-    $scope.payments = res.data;
-  });
+agoraApp.component('greetUser', {
+  template: '<div style="display:block;background-color:#ccc;padding:5px 5px 1px 10px;">' +
+    'Hello, {{$ctrl.user}}!' +
+    '</p>',
+  controller: function GreetUserController() {
+    this.user = 'Mike Plexousakis';
+  }
+});
+
+agoraApp.config(function($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
 });

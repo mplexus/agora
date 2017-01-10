@@ -6,17 +6,13 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script src="bower_components/angular/angular.js"></script>
     <script src="app.js"></script>
+    <script src="payment-list.component.js"></script>
   </head>
-  <body ng-controller="PaymentListController">
+  <body>
 
-    <ul>
-      <li ng-repeat="payment in payments">
-        <span>{{payment.token}}</span>
-        <p>{{payment.status}}</p>
-        <p>{{payment.created_at}}</p>
-        <p>{{ (payment.money_amount / 100) | currency : "€" : 2}}</p>
-      </li>
-    </ul>
+    <greet-user></greet-user>
+
+    <payment-list></payment-list>
 
   </body>
 </html>
