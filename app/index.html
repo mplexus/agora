@@ -1,14 +1,22 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="agoraApp">
   <head>
     <meta charset="utf-8">
     <title>My HTML File</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
   </head>
-  <body>
+  <body ng-controller="PaymentListController">
 
-    <p>Nothing here {{'yet' + '!'}}</p>
+    <ul>
+      <li ng-repeat="payment in payments">
+        <span>{{payment.token}}</span>
+        <p>{{payment.status}}</p>
+        <p>{{payment.created_at}}</p>
+        <p>{{payment.amount}}</p>
+      </li>
+    </ul>
 
   </body>
 </html>
