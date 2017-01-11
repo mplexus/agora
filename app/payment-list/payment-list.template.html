@@ -1,0 +1,11 @@
+<div class='widgetHeader'>
+  <p>Total number of payments: {{totalNumber}}</p>
+</div>
+<ul>
+  <li ng-repeat="payment in this.payments">
+    <span>{{payment.token}}</span>
+    <p>{{payment.status}}</p>
+    <p>{{payment.created_at}}</p>
+    <p>{{ (payment.money_amount / 100) | currency : "€" : 2}}</p>
+  </li>
+</ul>

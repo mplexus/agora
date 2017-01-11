@@ -3,16 +3,7 @@
 angular.
   module('paymentList').
   component('paymentList', {
-    template:
-        'Total number of payments: ' + '{{totalNumber}}' +
-        '<ul>' +
-          '<li ng-repeat="payment in this.payments">' +
-            '<span>{{payment.token}}</span>' +
-            '<p>{{payment.status}}</p>' +
-            '<p>{{payment.created_at}}</p>' +
-            '<p>{{ (payment.money_amount / 100) | currency : "€" : 2}}</p>' +
-          '</li>' +
-        '</ul>',
+    templateUrl: 'payment-list/payment-list.template.html',
     controller: function PaymentListController($scope, $http) {
       $scope.payments = [];
       $scope.totalNumber = 0;
