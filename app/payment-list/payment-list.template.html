@@ -1,9 +1,16 @@
 <div class='row'>
   <div class="panel-body">
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       Showing <strong>{{(payments | filter:query).length}}</strong> of a total of <strong>{{totalNumber}}</strong> payments.
     </div>
-    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="token">Alphabetical</option>
+        <option value="created_at">Newest</option>
+      </select>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       Search: <input ng-model="query" />
     </div>
   </div>
@@ -18,7 +25,7 @@
         <th>Date Created</th>
         <th>Amount</th>
       </tr>
-      <tr ng-repeat="payment in payments | filter:query">
+      <tr ng-repeat="payment in payments | filter:query | orderBy:orderProp">
         <td>{{$index + 1}}</td>
         <td>{{payment.token}}</td>
         <td class="{{ payment.status == 'captured' ? 'success' : 'warning' }}">{{payment.status}}</td>
