@@ -1,11 +1,26 @@
-<div class='widgetHeader'>
-  <p>Total number of payments: {{totalNumber}}</p>
+<div class='row'>
+  <div class="panel-body">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">Total number of payments: </div>
+    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">{{totalNumber}}</div>
+  </div>
 </div>
-<ul>
-  <li ng-repeat="payment in this.payments">
-    <span>{{payment.token}}</span>
-    <p>{{payment.status}}</p>
-    <p>{{payment.created_at}}</p>
-    <p>{{ (payment.money_amount / 100) | currency : "€" : 2}}</p>
-  </li>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th>#</th>
+      <th>Token</th>
+      <th>Status</th>
+      <th>Date Created</th>
+      <th>Amount</th>
+    </tr>
+    <tr ng-repeat="payment in this.payments">
+      <td>{{$index + 1}}</td>
+      <td>{{payment.token}}</td>
+      <td class="{{ payment.status == 'captured' ? 'success' : 'warning' }}">{{payment.status}}</td>
+      <td>{{payment.created_at}}</td>
+      <td>{{ (payment.amount / 100) | currency : payment.currency == 'EUR' ? '€ ' : payment.currency+' ' : 2}}</td>
+    </tr>
+  </table>
+</div>
+</div>
