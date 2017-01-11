@@ -13,5 +13,6 @@ angular.
         $scope.payments = res.data.items;
         $scope.totalNumber = res.data.total;
       });
+      $scope.query="pmt_";
     }
   });
