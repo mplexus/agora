@@ -1,7 +1,7 @@
 describe('paymentList', function() {
 
   // Load the module that contains the `paymentList` component before each test
-  beforeEach(module('agoraApp'));
+  beforeEach(module('paymentList'));
 
   // Test the controller
   describe('PaymentListController', function() {
