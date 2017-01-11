@@ -1,7 +1,7 @@
 'use strict';
 
 angular.
-  module('agoraApp').
+  module('paymentList').
   component('paymentList', {
     template:
         'Total number of payments: ' + '{{totalNumber}}' +
