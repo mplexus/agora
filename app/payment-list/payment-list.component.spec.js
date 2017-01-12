@@ -7,17 +7,27 @@ describe('paymentList', function() {
   describe('PaymentListController', function() {
     var ctrl;
     var scope = {};
+    var $httpBackend;
+    var url = 'http://admin.api.torawallet.local/v1/payments';
 
-    beforeEach(inject(function($componentController) {
+
+    beforeEach(inject(function($componentController, _$httpBackend_) {
+      var mock_respond = readJSON('mocks/payments.json');
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET(url)
+                  .respond(mock_respond);
       ctrl = $componentController('paymentList', {$scope: scope});
     }));
 
-    it('should generate a "payments" model with "that" number of items as set in json response', function() {
-      expect(scope.payments.length).toBe(scope.totalNumber);
+    it('should generate a "payments" model with specific number of items as set in json response', function() {
+      expect(scope.totalNumber).toEqual(0);
+      $httpBackend.flush();
+      expect(scope.totalNumber).toEqual(6);
+      expect(scope.payments.length).toBe(6);
     });
 
-    it('should set a default value for the `orderProp` model', function() {
-      expect(scope.orderProp).toBe('created_at');
+    it('should set a default value for the order-by model', function() {
+      expect(scope.orderProp).toBe('-created_at');
     });
 
   });
