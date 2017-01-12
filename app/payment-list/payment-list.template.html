@@ -6,8 +6,10 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       Sort by:
       <select ng-model="orderProp">
-        <option value="token">Alphabetical</option>
-        <option value="created_at">Newest</option>
+        <option value="token">Alphabetical ASC</option>
+        <option value="-token">Alphabetical DESC</option>
+        <option value="-created_at">Newest</option>
+        <option value="created_at">Oldest</option>
       </select>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

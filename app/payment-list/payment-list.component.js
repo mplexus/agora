@@ -14,6 +14,6 @@ angular.
         $scope.totalNumber = res.data.total;
       });
       $scope.query = "pmt_";
-      $scope.orderProp = "created_at";
+      $scope.orderProp = "-created_at";
     }
   });
