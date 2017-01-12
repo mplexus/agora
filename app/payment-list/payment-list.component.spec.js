@@ -5,13 +5,20 @@ describe('paymentList', function() {
 
   // Test the controller
   describe('PaymentListController', function() {
+    var ctrl;
+    var scope = {};
 
-    it('should generate a "payments" model with "that" number of items as set in json response', inject(function($componentController) {
-      var scope = {};
-      var ctrl = $componentController('paymentList', {$scope: scope});
-
-      expect(scope.payments.length).toBe(scope.totalNumber);
+    beforeEach(inject(function($componentController) {
+      ctrl = $componentController('paymentList', {$scope: scope});
     }));
+
+    it('should generate a "payments" model with "that" number of items as set in json response', function() {
+      expect(scope.payments.length).toBe(scope.totalNumber);
+    });
+
+    it('should set a default value for the `orderProp` model', function() {
+      expect(scope.orderProp).toBe('created_at');
+    });
 
   });
 
