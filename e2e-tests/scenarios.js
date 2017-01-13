@@ -55,6 +55,13 @@ describe('agoraApp', function() {
 
     });
 
+    it('should render phone specific links', function() {
+      var query = element(by.model('query'));
+      query.sendKeys('Eok'); //limit to one results
+
+      element.all(by.css('table.payments td a')).first().click();
+      expect(browser.getLocationAbsUrl()).toBe('/payments/pmt_EokF2uQcdoKlb54VhB9gsoMS');
+    });
 
   });
 
