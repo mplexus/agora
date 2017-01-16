@@ -3,6 +3,8 @@
 // Define the `agoraApp` module
 var agoraApp = angular.module('agoraApp', [
   // ...which depends on the `paymentList` module
+  'ngRoute',
+  'paymentDetail',
   'paymentList'
 ]);
 
