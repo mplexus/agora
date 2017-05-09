@@ -8,7 +8,7 @@ describe('paymentList', function() {
     var ctrl;
     var scope = {};
     var $httpBackend;
-    var url = 'http://admin.api.torawallet.local/v1/payments';
+    var url = 'http://admin.api.torawallet.gr/v1/payments';
 
 
     beforeEach(inject(function($componentController, _$httpBackend_) {
